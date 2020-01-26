@@ -1,0 +1,195 @@
+$ packer build aws-ami.json
+amazon-ebs: output will be in this color.
+
+==> amazon-ebs: Prevalidating any provided VPC information
+==> amazon-ebs: Prevalidating AMI Name: packer-ubuntu 1580054111
+    amazon-ebs: Found Image ID: ami-0059e77376795fe21
+==> amazon-ebs: Creating temporary keypair: packer_5e2db660-40b5-f945-62e1-8c00ac4e8e7f
+==> amazon-ebs: Creating temporary security group for this instance: packer_5e2db66f-e917-121e-5898-af97d8dbcb4f
+==> amazon-ebs: Authorizing access to port 22 from [0.0.0.0/0] in the temporary security groups...
+==> amazon-ebs: Launching a source AWS instance...
+==> amazon-ebs: Adding tags to source instance
+    amazon-ebs: Adding tag: "Name": "Packer Builder"
+    amazon-ebs: Instance ID: i-04bab27d0c9e46baf
+==> amazon-ebs: Waiting for instance (i-04bab27d0c9e46baf) to become ready...
+==> amazon-ebs: Using ssh communicator to connect: 54.148.154.102
+==> amazon-ebs: Waiting for SSH to become available...
+==> amazon-ebs: Connected to SSH!
+==> amazon-ebs: Uploading ../../../../.ssh/packer-key.pub => ~/.ssh/
+packer-key.pub 420 B / 420 B [=======================================] 100.00% 1s
+==> amazon-ebs: Provisioning with shell script: /var/folders/j5/q59qyzws44qb_9bm2ntbrbcc0000gn/T/packer-shell087762459
+==> amazon-ebs: Provisioning with shell script: ./scripts/install-docker.sh
+    amazon-ebs: --- Update the apt package index ---
+    amazon-ebs: Get:1 http://us-west-2.ec2.archive.ubuntu.com/ubuntu bionic InRelease [242 kB]
+    amazon-ebs: Get:2 http://us-west-2.ec2.archive.ubuntu.com/ubuntu bionic-updates InRelease [88.7 kB]
+    amazon-ebs: Get:3 http://us-west-2.ec2.archive.ubuntu.com/ubuntu bionic-backports InRelease [74.6 kB]
+    amazon-ebs: Get:4 https://apt.repos.intel.com/mpi all InRelease [4394 B]
+    amazon-ebs: Get:5 http://security.ubuntu.com/ubuntu bionic-security InRelease [88.7 kB]
+    amazon-ebs: Get:6 http://us-west-2.ec2.archive.ubuntu.com/ubuntu bionic/main amd64 Packages [1019 kB]
+    amazon-ebs: Get:7 http://us-west-2.ec2.archive.ubuntu.com/ubuntu bionic/main Translation-en [516 kB]
+    amazon-ebs: Get:8 http://us-west-2.ec2.archive.ubuntu.com/ubuntu bionic/restricted amd64 Packages [9184 B]
+    amazon-ebs: Get:9 http://us-west-2.ec2.archive.ubuntu.com/ubuntu bionic/restricted Translation-en [3584 B]
+    amazon-ebs: Get:10 http://us-west-2.ec2.archive.ubuntu.com/ubuntu bionic/universe amd64 Packages [8570 kB]
+    amazon-ebs: Get:11 http://us-west-2.ec2.archive.ubuntu.com/ubuntu bionic/universe Translation-en [4941 kB]
+    amazon-ebs: Get:12 http://us-west-2.ec2.archive.ubuntu.com/ubuntu bionic/multiverse amd64 Packages [151 kB]
+    amazon-ebs: Get:13 http://us-west-2.ec2.archive.ubuntu.com/ubuntu bionic/multiverse Translation-en [108 kB]
+    amazon-ebs: Get:14 http://us-west-2.ec2.archive.ubuntu.com/ubuntu bionic-updates/main amd64 Packages [833 kB]
+    amazon-ebs: Get:15 http://us-west-2.ec2.archive.ubuntu.com/ubuntu bionic-updates/main Translation-en [292 kB]
+    amazon-ebs: Get:16 http://us-west-2.ec2.archive.ubuntu.com/ubuntu bionic-updates/restricted amd64 Packages [27.4 kB]
+    amazon-ebs: Get:17 http://us-west-2.ec2.archive.ubuntu.com/ubuntu bionic-updates/restricted Translation-en [7356 B]
+    amazon-ebs: Get:18 http://us-west-2.ec2.archive.ubuntu.com/ubuntu bionic-updates/universe amd64 Packages [1044 kB]
+    amazon-ebs: Get:19 http://us-west-2.ec2.archive.ubuntu.com/ubuntu bionic-updates/universe Translation-en [322 kB]
+    amazon-ebs: Get:20 http://us-west-2.ec2.archive.ubuntu.com/ubuntu bionic-updates/multiverse amd64 Packages [9500 B]
+    amazon-ebs: Get:21 http://us-west-2.ec2.archive.ubuntu.com/ubuntu bionic-updates/multiverse Translation-en [4540 B]
+    amazon-ebs: Get:22 http://us-west-2.ec2.archive.ubuntu.com/ubuntu bionic-backports/main amd64 Packages [2512 B]
+    amazon-ebs: Get:23 http://us-west-2.ec2.archive.ubuntu.com/ubuntu bionic-backports/main Translation-en [1644 B]
+    amazon-ebs: Get:24 http://us-west-2.ec2.archive.ubuntu.com/ubuntu bionic-backports/universe amd64 Packages [4032 B]
+    amazon-ebs: Get:25 http://us-west-2.ec2.archive.ubuntu.com/ubuntu bionic-backports/universe Translation-en [1900 B]
+    amazon-ebs: Get:26 https://apt.repos.intel.com/mpi all/main amd64 Packages [14.5 kB]
+    amazon-ebs: Get:27 https://apt.repos.intel.com/mpi all/main all Packages [4868 B]
+    amazon-ebs: Get:28 http://security.ubuntu.com/ubuntu bionic-security/main amd64 Packages [611 kB]
+    amazon-ebs: Get:29 http://security.ubuntu.com/ubuntu bionic-security/main Translation-en [199 kB]
+    amazon-ebs: Get:30 http://security.ubuntu.com/ubuntu bionic-security/restricted amd64 Packages [18.4 kB]
+    amazon-ebs: Get:31 http://security.ubuntu.com/ubuntu bionic-security/restricted Translation-en [5408 B]
+    amazon-ebs: Get:32 http://security.ubuntu.com/ubuntu bionic-security/universe amd64 Packages [634 kB]
+    amazon-ebs: Get:33 http://security.ubuntu.com/ubuntu bionic-security/universe Translation-en [213 kB]
+    amazon-ebs: Get:34 http://security.ubuntu.com/ubuntu bionic-security/multiverse amd64 Packages [6116 B]
+    amazon-ebs: Fetched 20.1 MB in 7s (2893 kB/s)
+    amazon-ebs: Reading package lists...
+    amazon-ebs: Reading package lists...
+    amazon-ebs: Building dependency tree...
+    amazon-ebs: Reading state information...
+    amazon-ebs: ca-certificates is already the newest version (20180409).
+    amazon-ebs: ca-certificates set to manually installed.
+    amazon-ebs: curl is already the newest version (7.58.0-2ubuntu3.8).
+    amazon-ebs: apt-transport-https is already the newest version (1.6.12).
+    amazon-ebs: The following additional packages will be installed:
+    amazon-ebs:   python3-software-properties
+    amazon-ebs: The following NEW packages will be installed:
+    amazon-ebs:   gnupg-agent
+    amazon-ebs: The following packages will be upgraded:
+    amazon-ebs:   python3-software-properties software-properties-common
+    amazon-ebs: 2 upgraded, 1 newly installed, 0 to remove and 48 not upgraded.
+    amazon-ebs: Need to get 38.5 kB of archives.
+    amazon-ebs: After this operation, 43.0 kB of additional disk space will be used.
+    amazon-ebs: Get:1 http://us-west-2.ec2.archive.ubuntu.com/ubuntu bionic-updates/universe amd64 gnupg-agent all 2.2.4-1ubuntu1.2 [4880 B]
+    amazon-ebs: Get:2 http://us-west-2.ec2.archive.ubuntu.com/ubuntu bionic-updates/main amd64 software-properties-common all 0.96.24.32.12 [10.0 kB]
+    amazon-ebs: Get:3 http://us-west-2.ec2.archive.ubuntu.com/ubuntu bionic-updates/main amd64 python3-software-properties all 0.96.24.32.12 [23.6 kB]
+==> amazon-ebs: debconf: unable to initialize frontend: Dialog
+==> amazon-ebs: debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+==> amazon-ebs: debconf: falling back to frontend: Readline
+==> amazon-ebs: debconf: unable to initialize frontend: Readline
+==> amazon-ebs: debconf: (This frontend requires a controlling tty.)
+==> amazon-ebs: debconf: falling back to frontend: Teletype
+==> amazon-ebs: dpkg-preconfigure: unable to re-open stdin:
+    amazon-ebs: Fetched 38.5 kB in 0s (2738 kB/s)
+    amazon-ebs: Selecting previously unselected package gnupg-agent.
+    amazon-ebs: (Reading database ... 176686 files and directories currently installed.)
+    amazon-ebs: Preparing to unpack .../gnupg-agent_2.2.4-1ubuntu1.2_all.deb ...
+    amazon-ebs: Unpacking gnupg-agent (2.2.4-1ubuntu1.2) ...
+    amazon-ebs: Preparing to unpack .../software-properties-common_0.96.24.32.12_all.deb ...
+    amazon-ebs: Unpacking software-properties-common (0.96.24.32.12) over (0.96.24.32.11) ...
+    amazon-ebs: Preparing to unpack .../python3-software-properties_0.96.24.32.12_all.deb ...
+    amazon-ebs: Unpacking python3-software-properties (0.96.24.32.12) over (0.96.24.32.11) ...
+    amazon-ebs: Setting up python3-software-properties (0.96.24.32.12) ...
+    amazon-ebs: Setting up gnupg-agent (2.2.4-1ubuntu1.2) ...
+    amazon-ebs: Setting up software-properties-common (0.96.24.32.12) ...
+    amazon-ebs: Processing triggers for dbus (1.12.2-1ubuntu1.1) ...
+    amazon-ebs: Processing triggers for man-db (2.8.3-2ubuntu0.1) ...
+    amazon-ebs: --- Add Docker’s official GPG key ---
+==> amazon-ebs: Warning: apt-key output should not be parsed (stdout is not a terminal)
+    amazon-ebs: OK
+    amazon-ebs: --- Use the following command to set up the stable repository. ---
+    amazon-ebs: Hit:1 http://us-west-2.ec2.archive.ubuntu.com/ubuntu bionic InRelease
+    amazon-ebs: Hit:2 http://us-west-2.ec2.archive.ubuntu.com/ubuntu bionic-updates InRelease
+    amazon-ebs: Hit:3 http://us-west-2.ec2.archive.ubuntu.com/ubuntu bionic-backports InRelease
+    amazon-ebs: Get:4 https://download.docker.com/linux/ubuntu bionic InRelease [64.4 kB]
+    amazon-ebs: Hit:5 https://apt.repos.intel.com/mpi all InRelease
+    amazon-ebs: Hit:6 http://security.ubuntu.com/ubuntu bionic-security InRelease
+    amazon-ebs: Get:7 https://download.docker.com/linux/ubuntu bionic/stable amd64 Packages [9852 B]
+    amazon-ebs: Fetched 74.3 kB in 1s (141 kB/s)
+    amazon-ebs: Reading package lists...
+    amazon-ebs: --- INSTALL DOCKER ENGINE - COMMUNITY ---
+    amazon-ebs: Hit:1 http://us-west-2.ec2.archive.ubuntu.com/ubuntu bionic InRelease
+    amazon-ebs: Hit:2 http://us-west-2.ec2.archive.ubuntu.com/ubuntu bionic-updates InRelease
+    amazon-ebs: Hit:3 http://us-west-2.ec2.archive.ubuntu.com/ubuntu bionic-backports InRelease
+    amazon-ebs: Hit:4 https://download.docker.com/linux/ubuntu bionic InRelease
+    amazon-ebs: Hit:5 https://apt.repos.intel.com/mpi all InRelease
+    amazon-ebs: Hit:6 http://security.ubuntu.com/ubuntu bionic-security InRelease
+    amazon-ebs: Reading package lists...
+    amazon-ebs: Reading package lists...
+    amazon-ebs: Building dependency tree...
+    amazon-ebs: Reading state information...
+    amazon-ebs: The following additional packages will be installed:
+    amazon-ebs:   aufs-tools cgroupfs-mount pigz
+    amazon-ebs: The following NEW packages will be installed:
+    amazon-ebs:   aufs-tools cgroupfs-mount containerd.io docker-ce docker-ce-cli pigz
+    amazon-ebs: 0 upgraded, 6 newly installed, 0 to remove and 48 not upgraded.
+    amazon-ebs: Need to get 85.5 MB of archives.
+    amazon-ebs: After this operation, 384 MB of additional disk space will be used.
+    amazon-ebs: Get:1 http://us-west-2.ec2.archive.ubuntu.com/ubuntu bionic/universe amd64 pigz amd64 2.4-1 [57.4 kB]
+    amazon-ebs: Get:2 http://us-west-2.ec2.archive.ubuntu.com/ubuntu bionic/universe amd64 aufs-tools amd64 1:4.9+20170918-1ubuntu1 [104 kB]
+    amazon-ebs: Get:3 http://us-west-2.ec2.archive.ubuntu.com/ubuntu bionic/universe amd64 cgroupfs-mount all 1.4 [6320 B]
+    amazon-ebs: Get:4 https://download.docker.com/linux/ubuntu bionic/stable amd64 containerd.io amd64 1.2.10-3 [20.0 MB]
+    amazon-ebs: Get:5 https://download.docker.com/linux/ubuntu bionic/stable amd64 docker-ce-cli amd64 5:19.03.5~3-0~ubuntu-bionic [42.5 MB]
+    amazon-ebs: Get:6 https://download.docker.com/linux/ubuntu bionic/stable amd64 docker-ce amd64 5:19.03.5~3-0~ubuntu-bionic [22.8 MB]
+==> amazon-ebs: debconf: unable to initialize frontend: Dialog
+==> amazon-ebs: debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+==> amazon-ebs: debconf: falling back to frontend: Readline
+==> amazon-ebs: debconf: unable to initialize frontend: Readline
+==> amazon-ebs: debconf: (This frontend requires a controlling tty.)
+==> amazon-ebs: debconf: falling back to frontend: Teletype
+==> amazon-ebs: dpkg-preconfigure: unable to re-open stdin:
+    amazon-ebs: Fetched 85.5 MB in 4s (19.1 MB/s)
+    amazon-ebs: Selecting previously unselected package pigz.
+    amazon-ebs: (Reading database ... 176690 files and directories currently installed.)
+    amazon-ebs: Preparing to unpack .../0-pigz_2.4-1_amd64.deb ...
+    amazon-ebs: Unpacking pigz (2.4-1) ...
+    amazon-ebs: Selecting previously unselected package aufs-tools.
+    amazon-ebs: Preparing to unpack .../1-aufs-tools_1%3a4.9+20170918-1ubuntu1_amd64.deb ...
+    amazon-ebs: Unpacking aufs-tools (1:4.9+20170918-1ubuntu1) ...
+    amazon-ebs: Selecting previously unselected package cgroupfs-mount.
+    amazon-ebs: Preparing to unpack .../2-cgroupfs-mount_1.4_all.deb ...
+    amazon-ebs: Unpacking cgroupfs-mount (1.4) ...
+    amazon-ebs: Selecting previously unselected package containerd.io.
+    amazon-ebs: Preparing to unpack .../3-containerd.io_1.2.10-3_amd64.deb ...
+    amazon-ebs: Unpacking containerd.io (1.2.10-3) ...
+    amazon-ebs: Selecting previously unselected package docker-ce-cli.
+    amazon-ebs: Preparing to unpack .../4-docker-ce-cli_5%3a19.03.5~3-0~ubuntu-bionic_amd64.deb ...
+    amazon-ebs: Unpacking docker-ce-cli (5:19.03.5~3-0~ubuntu-bionic) ...
+    amazon-ebs: Selecting previously unselected package docker-ce.
+    amazon-ebs: Preparing to unpack .../5-docker-ce_5%3a19.03.5~3-0~ubuntu-bionic_amd64.deb ...
+    amazon-ebs: Unpacking docker-ce (5:19.03.5~3-0~ubuntu-bionic) ...
+    amazon-ebs: Setting up aufs-tools (1:4.9+20170918-1ubuntu1) ...
+    amazon-ebs: Setting up containerd.io (1.2.10-3) ...
+    amazon-ebs: Created symlink /etc/systemd/system/multi-user.target.wants/containerd.service → /lib/systemd/system/containerd.service.
+    amazon-ebs: Setting up cgroupfs-mount (1.4) ...
+    amazon-ebs: Setting up docker-ce-cli (5:19.03.5~3-0~ubuntu-bionic) ...
+    amazon-ebs: Setting up pigz (2.4-1) ...
+    amazon-ebs: Setting up docker-ce (5:19.03.5~3-0~ubuntu-bionic) ...
+    amazon-ebs: Created symlink /etc/systemd/system/multi-user.target.wants/docker.service → /lib/systemd/system/docker.service.
+    amazon-ebs: Created symlink /etc/systemd/system/sockets.target.wants/docker.socket → /lib/systemd/system/docker.socket.
+    amazon-ebs: Processing triggers for libc-bin (2.27-3ubuntu1) ...
+    amazon-ebs: Processing triggers for systemd (237-3ubuntu10.33) ...
+    amazon-ebs: Processing triggers for man-db (2.8.3-2ubuntu0.1) ...
+    amazon-ebs: Processing triggers for ureadahead (0.100.0-21) ...
+==> amazon-ebs: Synchronizing state of docker.service with SysV service script with /lib/systemd/systemd-sysv-install.
+==> amazon-ebs: Executing: /lib/systemd/systemd-sysv-install enable docker
+    amazon-ebs: --- Start docker service ---
+    amazon-ebs: -- Add user ubuntu to group docker --
+==> amazon-ebs: Stopping the source instance...
+    amazon-ebs: Stopping instance
+==> amazon-ebs: Waiting for the instance to stop...
+==> amazon-ebs: Creating AMI packer-ubuntu 1580054111 from instance i-04bab27d0c9e46baf
+    amazon-ebs: AMI: ami-0aeed6e31cf7f1daf
+==> amazon-ebs: Waiting for AMI to become ready...
+==> amazon-ebs: Terminating the source AWS instance...
+==> amazon-ebs: Cleaning up any extra volumes...
+==> amazon-ebs: No volumes to clean up, skipping
+==> amazon-ebs: Deleting temporary security group...
+==> amazon-ebs: Deleting temporary keypair...
+Build 'amazon-ebs' finished.
+
+==> Builds finished. The artifacts of successful builds are:
+--> amazon-ebs: AMIs were created:
+us-west-2: ami-0aeed6e31cf7f1daf
